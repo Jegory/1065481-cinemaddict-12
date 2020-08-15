@@ -1,7 +1,7 @@
 # Личный проект «Киноман» [![Build status][travis-image]][travis-url]
 
 * Студент: [Egor Nazarovich](https://up.htmlacademy.ru/ecmascript/12/user/1065481).
-* Наставник: `Неизвестно`.
+* Наставник: [Виталий Яковенко](https://htmlacademy.ru/profile/id376639).
 
 ---
 
