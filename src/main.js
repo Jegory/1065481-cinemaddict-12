@@ -1,4 +1,9 @@
-"use strict";
+import {createMenuTemplate} from './view/siteMenuTemplate.js';
+import {createProfileTemplate} from './view/profileTemplate.js';
+import {createSortTemplate} from './view/sortTemplate.js';
+import {createFilmsSection} from './view/filmsSection.js';
+import {createFilmsListTemplate} from './view/filmsListTemplate.js';
+import {createFooterStatisticsTemplate} from './view/footerStatisticsTemplate.js';
 
 const allFilms = [
   {
@@ -98,99 +103,6 @@ const mostCommented = [
     comments: `56 comments`,
   },
 ];
-
-const createProfileTemplate = () => ( // профиль
-  `
-    <section class="header__profile profile">
-    <p class="profile__rating">Movie Buff</p>
-    <img class="profile__avatar" src="images/bitmap@2x.png" alt="Avatar" width="35" height="35">
-    </section>
-  `
-);
-
-const createMenuTemplate = () => ( // меню, навигация
-  `
-    <nav class="main-navigation">
-      <div class="main-navigation__items">
-        <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>
-        <a href="#watchlist" class="main-navigation__item">Watchlist <span class="main-navigation__item-count">13</span></a>
-        <a href="#history" class="main-navigation__item">History <span class="main-navigation__item-count">4</span></a>
-        <a href="#favorites" class="main-navigation__item">Favorites <span class="main-navigation__item-count">8</span></a>
-      </div>
-        <a href="#stats" class="main-navigation__additional">Stats</a>
-    </nav>
-  `
-);
-
-const createSortTemplate = () => ( // сортировка
-  `
-    <ul class="sort">
-      <li><a href="#" class="sort__button sort__button--active">Sort by default</a></li>
-      <li><a href="#" class="sort__button">Sort by date</a></li>
-      <li><a href="#" class="sort__button">Sort by rating</a></li>
-    </ul>
-  `
-);
-
-const createFilmsSection = () => (
-  `
-      <section class="films"></section>
-  `
-);
-
-// карточка фильма
-const createFilmCardTemplate = ({title, rating, year, duration, genre, imgSrc, description, comments}) => (
-  `
-    <article class="film-card">
-        <h3 class="film-card__title">${title}</h3>
-        <p class="film-card__rating">${rating}</p>
-        <p class="film-card__info">
-          <span class="film-card__year">${year}</span>
-          <span class="film-card__duration">${duration}</span>
-          <span class="film-card__genre">${genre}</span>
-        </p>
-        <img src=${imgSrc} alt="" class="film-card__poster">
-        <p class="film-card__description">${description}</p>
-        <a class="film-card__comments">${comments}</a>
-        ${createFilmCardControls()}
-    </article>
-  `
-);
-
-const createFilmCardControls = () => ( // форма в карточке
-  `
-    <form class="film-card__controls">
-      <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist">Add to watchlist</button>
-      <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
-      <button class="film-card__controls-item button film-card__controls-item--favorite film-card__controls-item--active">Mark as favorite</button>
-    </form>
-  `
-);
-
-const createShowMoreButton = () => ( // кнопка Show more
-  `
-    <button class="films-list__show-more">Show more</button>
-  `
-);
-
-const createFilmsListTemplate = ({list = [], listTitle = ``, visuallyHideTitle = false, isRenderButtonShown = false, isExtra = false}) => {
-  const filmCards = list.map((item) => createFilmCardTemplate(item));
-  return (
-    `
-      <section class="films-list${isExtra ? `--extra` : ``}">
-        <h2 class="films-list__title ${visuallyHideTitle ? `visually-hidden` : ``}">${listTitle}</h2>
-        <div class="films-list__container">${filmCards.join(``)}</div>
-        ${isRenderButtonShown ? createShowMoreButton() : ``}
-      </section>
-    `
-  );
-};
-
-const createFooterStatisticsTemplate = () => (
-  `
-    <p>130 291 movies inside</p>
-  `
-);
 
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
