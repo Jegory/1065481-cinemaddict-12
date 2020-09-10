@@ -145,7 +145,7 @@ const createFilmsSection = () => (
 );
 
 // карточка фильма
-const createFilmCardTemplate = ({ title, rating, year, duration, genre, imgSrc, description, comments }) => (
+const createFilmCardTemplate = ({title, rating, year, duration, genre, imgSrc, description, comments}) => (
   `
     <article class="film-card">
         <h3 class="film-card__title">${title}</h3>
@@ -179,7 +179,7 @@ const createShowMoreButton = () => (
   `
 );
 
-const createFilmsListTemplate = ({ list = [], listTitle = ``, visuallyHideTitle = false, isRenderButtonShown = false, isExtra = false }) => {
+const createFilmsListTemplate = ({list = [], listTitle = ``, visuallyHideTitle = false, isRenderButtonShown = false, isExtra = false}) => {
   const filmCards = list.map((item) => createFilmCardTemplate(item));
   return (
     `
@@ -211,9 +211,9 @@ render(insertMenuElement, createSortTemplate(), `beforeend`);
 render(insertMenuElement, createFilmsSection(), `beforeend`);
 
 const filmsSectionElement = insertMenuElement.querySelector(`.films`);
-render(filmsSectionElement, createFilmsListTemplate({ list: allFilms, listTitle: `All movies. Upcoming`, visuallyHideTitle: true, isRenderButtonShown: true }), `beforeend`);
-render(filmsSectionElement, createFilmsListTemplate({ list: topRated, listTitle: `Top rated`, isExtra: true }), `beforeend`);
-render(filmsSectionElement, createFilmsListTemplate({ list: mostCommented, listTitle: `Most commented`, isExtra: true }), `beforeend`);
+render(filmsSectionElement, createFilmsListTemplate({list: allFilms, listTitle: `All movies. Upcoming`, visuallyHideTitle: true, isRenderButtonShown: true}), `beforeend`);
+render(filmsSectionElement, createFilmsListTemplate({list: topRated, listTitle: `Top rated`, isExtra: true}), `beforeend`);
+render(filmsSectionElement, createFilmsListTemplate({list: mostCommented, listTitle: `Most commented`, isExtra: true}), `beforeend`);
 
 const insertFooterElement = document.querySelector(`.footer`);
 const filmStatisticElement = insertFooterElement.querySelector(`.footer__statistics`);
