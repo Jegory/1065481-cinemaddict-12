@@ -1,11 +1,5 @@
 "use strict";
 
-const TASK_COUNT = 3;
-
-// for (let i = 0; i < TASK_COUNT; i++) {
-//   render(filmsSectionElement, createFilmsListTemplate(), `beforeend`);
-// }
-
 const allFilms = [
   {
     title: `The Dance of Life`,
@@ -218,7 +212,3 @@ render(filmsSectionElement, createFilmsListTemplate({list: mostCommented, listTi
 const insertFooterElement = document.querySelector(`.footer`);
 const filmStatisticElement = insertFooterElement.querySelector(`.footer__statistics`);
 render(filmStatisticElement, createFooterStatisticsTemplate, `beforeend`);
-
-
-
-
