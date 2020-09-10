@@ -138,7 +138,7 @@ const createSortTemplate = () => ( // сортировка
   `
 );
 
-const createFilmsSection = () => (  // блок с фильмами
+const createFilmsSection = () => (
   `
       <section class="films"></section>
   `
@@ -163,7 +163,7 @@ const createFilmCardTemplate = ({ title, rating, year, duration, genre, imgSrc, 
   `
 );
 
-const createFilmCardControls = () => ( // форма в карточке
+const createFilmCardControls = () => (
   `
     <form class="film-card__controls">
       <button class="film-card__controls-item button film-card__controls-item--add-to-watchlist">Add to watchlist</button>
@@ -173,7 +173,7 @@ const createFilmCardControls = () => ( // форма в карточке
   `
 );
 
-const createShowMoreButton = () => ( // кнопка Show more
+const createShowMoreButton = () => (
   `
     <button class="films-list__show-more">Show more</button>
   `
@@ -218,7 +218,3 @@ render(filmsSectionElement, createFilmsListTemplate({ list: mostCommented, listT
 const insertFooterElement = document.querySelector(`.footer`);
 const filmStatisticElement = insertFooterElement.querySelector(`.footer__statistics`);
 render(filmStatisticElement, createFooterStatisticsTemplate, `beforeend`);
-
-
-
-
